@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": "alexander",
+      "name": "Александр",
+      "age": 40,
+      "city": "Москва",
+      "occupation": "Специалист",
+      "monthlyIncome": 85000,
+      "deposit": {
+        "amount": 412000,
+        "termMonths": 3,
+        "rate": 15.5,
+        "startDate": "2026-01-15",
+        "maturityDate": "2026-03-01"
+      },
+      "brokerageAccount": false,
+      "investments": [],
+      "preferences": {
+        "riskTolerance": "low",
+        "investmentGoals": ["сохранение", "немного доходности"]
+      }
+    }
+  ],
+  "funds": [
+    {
+      "symbol": "LQDT",
+      "name": "БПИФ Ликвидность",
+      "type": "money_market",
+      "description": "Фонд инвестирует в краткосрочные сделки репо и высоконадёжные облигации. Доходность близка к ключевой ставке, ликвидность высокая.",
+      "currentPrice": 1.125,
+      "dailyChange": 0.002,
+      "annualReturnEstimate": 15.0,
+      "riskLevel": "низкий",
+      "insurance": "не застрахован"
+    },
+    {
+      "symbol": "OFZ",
+      "name": "ОФЗ 26238",
+      "type": "bond",
+      "description": "Облигации федерального займа – государственные ценные бумаги с фиксированным купоном.",
+      "currentPrice": 985.2,
+      "coupon": 7.5,
+      "maturity": "2032",
+      "annualReturnEstimate": 16.2,
+      "riskLevel": "очень низкий"
+    }
+  ]
+}
