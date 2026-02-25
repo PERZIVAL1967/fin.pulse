@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import InfoModal from './InfoModal'
 
 const NextSteps: React.FC = () => {
-  const [modalContent, setModalContent] = useState<{ title: string; content: JSX.Element } | null>(
+  const [modalContent, setModalContent] = useState<{ title: string; content: React.JSX.Element } | null>(
     null,
   )
 
-  const openModal = (title: string, content: JSX.Element) => {
+  const openModal = (title: string, content: React.JSX.Element) => {
     setModalContent({ title, content })
   }
 
