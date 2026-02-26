@@ -70,6 +70,30 @@ export const updateUserInvestments = async (
   return currentUser
 }
 
+export const sellInvestment = async (fundSymbol: string): Promise<User> => {
+  await delay(300)
+  const investmentIndex = currentUser.investments.findIndex((inv) => inv.fundSymbol === fundSymbol)
+  if (investmentIndex === -1) throw new Error('Investment not found')
+
+  const investment = currentUser.investments[investmentIndex]
+  const fund = funds.find((f) => f.symbol === fundSymbol)
+  if (!fund) throw new Error('Fund not found')
+
+  const fundWithPrice = withSimulatedPrice(fund)
+  const currentValue = investment.shares * fundWithPrice.currentPrice
+
+  currentUser = {
+    ...currentUser,
+    deposit: {
+      ...currentUser.deposit,
+      amount: currentUser.deposit.amount + currentValue,
+    },
+    investments: currentUser.investments.filter((_, i) => i !== investmentIndex),
+  }
+
+  return currentUser
+}
+
 export const calculateMaturityCountdown = (maturityDate: string): number => {
   const today = new Date()
   const maturity = new Date(maturityDate)

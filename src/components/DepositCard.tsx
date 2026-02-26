@@ -37,30 +37,34 @@ const DepositCard: React.FC<DepositCardProps> = ({ deposit }) => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
-      <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Ваш вклад</h2>
+    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 border border-stone-200 dark:border-gray-700">
+      <h2 className="text-lg font-semibold text-stone-700 dark:text-gray-200 mb-4">Ваш вклад</h2>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Сумма</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">
+          <p className="text-sm text-stone-500 dark:text-gray-400">Сумма</p>
+          <p className="text-2xl font-bold text-stone-900 dark:text-white">
             {formatCurrency(deposit.amount)}
           </p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Ставка</p>
-          <p className="text-2xl font-bold text-green-600 dark:text-green-400">{deposit.rate}%</p>
+          <p className="text-sm text-stone-500 dark:text-gray-400">Ставка</p>
+          <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+            {deposit.rate}%
+          </p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Срок</p>
-          <p className="text-lg font-medium text-gray-900 dark:text-white">
+          <p className="text-sm text-stone-500 dark:text-gray-400">Срок</p>
+          <p className="text-lg font-medium text-stone-900 dark:text-white">
             {deposit.termMonths} месяца
           </p>
         </div>
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">До окончания</p>
+          <p className="text-sm text-stone-500 dark:text-gray-400">До окончания</p>
           <p
             className={`text-lg font-medium ${
-              daysLeft <= 14 ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'
+              daysLeft <= 14
+                ? 'text-amber-600 dark:text-amber-400'
+                : 'text-stone-700 dark:text-gray-300'
             }`}
           >
             {daysLeft} {pluralizeDays(daysLeft)}
@@ -68,8 +72,8 @@ const DepositCard: React.FC<DepositCardProps> = ({ deposit }) => {
         </div>
       </div>
       {daysLeft <= 14 && (
-        <div className="mt-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
-          <p className="text-red-700 dark:text-red-400 text-sm">
+        <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
+          <p className="text-amber-700 dark:text-amber-400 text-sm">
             ⏰ Ваш вклад скоро закончится. Посмотрите персональную рекомендацию ниже.
           </p>
         </div>
@@ -79,4 +83,3 @@ const DepositCard: React.FC<DepositCardProps> = ({ deposit }) => {
 }
 
 export default DepositCard
-

@@ -9,6 +9,7 @@ export interface User {
   brokerageAccount: boolean
   investments: Investment[]
   preferences: Preferences
+  investmentProfile?: InvestmentProfile
 }
 
 export interface Deposit {
@@ -44,4 +45,25 @@ export interface Preferences {
   riskTolerance: string
   investmentGoals: string[]
 }
+
+export interface QuizAnswers {
+  age: string
+  horizon: string
+  risk: string
+  depositSize: string
+  knowledge: string
+  experience: string
+  willingPercent: string
+}
+
+export type InvestmentProfile =
+  | 'conservative_short'
+  | 'conservative_medium'
+  | 'conservative_long'
+  | 'moderate_short'
+  | 'moderate_medium'
+  | 'moderate_long'
+  | 'aggressive_short'
+  | 'aggressive_medium'
+  | 'aggressive_long'
 
